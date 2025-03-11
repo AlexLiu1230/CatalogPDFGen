@@ -1,3 +1,0 @@
-([('main',
-   '/Users/yuhsin/PycharmProjects/CatalogPDFGen/dist/main',
-   'EXECUTABLE')],)
