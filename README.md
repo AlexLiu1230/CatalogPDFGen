@@ -1,8 +1,5 @@
-# CatalogPDFGen
-📄 這是一個 GUI 版的 PDF 產生器，根據 CSV 檔案產生產品型錄。
+# CatalogPDFGen - 產品型錄 PDF 產生器
 
-## 🚀 使用方式
-### 1️⃣ 下載專案
-```bash
-git clone https://github.com/你的GitHub帳號/CatalogPDFGen.git
-cd CatalogPDFGen
+📄 **CatalogPDFGen** 是一款基於 **Python** 的 **GUI 產品型錄 PDF 產生器**，使用者提供 **CSV 檔案**，即可自動生成 **精美排版的 PDF**，適用於電商、產品展示等用途。
+
+---
