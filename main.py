@@ -46,6 +46,31 @@ def generate():
     else:
         messagebox.showerror("Error", "Failed to read CSV file. Please check the file format.")
 
+def test_generate_pdf():
+    """
+    測試模式：自動讀取 products.csv，並產生 PDF 檔案到專案目錄內。
+    """
+    test_csv_path = "/Users/yuhsin/PycharmProjects/CatalogPDFGen/products.csv"
+    image_base_path = "/Users/yuhsin/PycharmProjects/CatalogPDFGen"  # 設定圖片根目錄
+    pdf_output_path = os.path.join(BASE_DIR, "catalog.pdf")  # 產生的 PDF 檔案路徑 (專案內)
+
+    if not os.path.exists(test_csv_path):
+        print(f"❌ 測試失敗：找不到測試 CSV 檔案 {test_csv_path}")
+        return
+
+    data = read_csv(test_csv_path)
+
+    # 確保圖片路徑正確
+    if "Image Path" in data.columns:
+        data["Image Path"] = data["Image Path"].apply(
+            lambda x: os.path.join(image_base_path, x) if not os.path.isabs(x) else x)
+
+    if data is not None:
+        generate_pdf(data, pdf_output_path)
+        print(f"✅ 測試成功！PDF 產生於 {pdf_output_path}")
+    else:
+        print("❌ 測試失敗：無法讀取 CSV 檔案，請檢查格式")
+
 def main():
     """
     主函式，負責啟動 GUI。
@@ -67,4 +92,5 @@ def main():
     root.mainloop()
 
 if __name__ == "__main__":
-    main()
+    test_generate_pdf()
+    #main()
